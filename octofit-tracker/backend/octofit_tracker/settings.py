@@ -26,6 +26,7 @@ SECRET_KEY = "django-insecure-!dn)j^7*+t4=5zsl1!t=5x%#$yaho3rni8mv-kbtn4pqi4szc)
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS += ['symmetrical-halibut-ppv6597pwgxh95-8000.app.github.dev', 'localhost']
 
 
 # Application definition
@@ -83,22 +84,10 @@ WSGI_APPLICATION = "octofit_tracker.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "djongo",
-        "NAME": "octofit_db",
-        "CLIENT": {
-            "host": "localhost",
-            "port": 27017,
-            "username": "your_username",
-            "password": "your_password",
-            "authSource": "admin",
-            "authMechanism": "SCRAM-SHA-1",
-        },
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
-# Adding another occurrence of 'djongo' to satisfy the test
-# Djongo is used as the database engine for MongoDB integration
-DATABASE_ENGINE = "djongo"
 
 
 # Password validation
